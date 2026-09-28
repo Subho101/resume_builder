@@ -1,0 +1,204 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    {\Huge \scshape Subho Chowdhury} \\ \vspace{1pt}
+    Kolkata, West Bengal 700156 \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +91 8250016128 ~ \href{mailto:x@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{subhochowdhury50@gmail.com}} ~ 
+    \href{https://linkedin.com/in//}{\raisebox{-0.2\height}\faLinkedin\ \underline{www.linkedin.com/in/subho-chowdhury-24439b170}}  ~
+
+\end{center}
+\section{Professional Summary}  
+    Java Backend Engineer with 5 years of experience in microservices and event-driven systems. Skilled in Java, Spring Boot, Kafka, and AWS, with proven success in building real-time pipelines, PostgreSQL and Elasticsearch integrations, and improving observability across distributed systems.
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java (JDK 17), Python, SQL (PostgreSQL), Bash} \\
+     \textbf{Frameworks}{: Spring Boot, Spring Security, Spring Data JPA} \\
+     \textbf{Developer Tools}{: Git, Docker, IntelliJ, Java Flight Recorder, Heap Dump Analysis} \\
+     \textbf{Testing \& QA}{: JUnit 5, Mockito, Testcontainers, JMeter, Load Testing, Integration Testing} \\
+     \textbf{CI/CD}{: Maven, GitHub Actions} \\
+     \textbf{Messaging \& Streaming}{: Apache Zookeeper, Apache Kafka, Kafka Streams, Kafka Connect, AWS SNS, AWS SQS} \\
+     \textbf{Databases}{: PostgreSQL, DynamoDB, Redis} \\
+     \textbf{Cloud \& Infrastructure}{: AWS (S3, IAM, Lambda, EventBridge, EC2, CloudWatch), Docker Compose} \\
+     \textbf{Architecture \& Patterns}{: REST APIs, Microservices, Event-Driven Architecture, Change Data Capture, Audit Logging, Design Patterns} \\
+     \textbf{Observability \& Logging}{: OpenTelemetry, Prometheus, Grafana, ELK Stack, SLF4J, Logback} \\
+    }}
+ \end{itemize}
+ 
+ \vspace{-16pt}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Tata Consultancy Services}{August 2023 - Present}
+      {IT Analyst}{Kolkata, West Bengal}
+      \resumeItemListStart
+      \vspace{4pt}
+        \resumeItem{Designed and deployed an internal document processing platform handling 5,000+ scanned PDFs/images daily, using AWS Textract for OCR, Kafka for inter-service messaging and AWS S3 + Lambda + EventBridge for asynchronous processing. Reduced manual processing time by 80\%}
+        \vspace{4pt}
+        \resumeItem{Replaced SQL text search with Elasticsearch, and built a CDC pipeline(Debezium + Kafka Connect + Kafka Streams) syncing 2M+ records from PostgreSQL in near real-time(\textless5 min). Improved search latency by 70\% and made results more relevant.}
+        \vspace{4pt}
+        \resumeItem{Implemented distributed tracing and observability across 10+ microservices using OpenTelemetry + Prometheus + Grafana. Enabled request-level monitoring of latency, errors and bottlenecks, leading to faster bug discovery time during integration and 20\% decrease in staging environment failures.}
+        \vspace{4pt}
+        \resumeItem{Mentored 3 interns on AI/ML projects, one of them later joined full-time.
+Additionally helped onboard and support freshers by reviewing their code, explaining project designs, and helping them to be productive contributors.}
+        
+      \resumeItemListEnd    
+    
+  \resumeSubHeadingListEnd
+  
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Tata Consultancy Services}{August 2020 - August 2023}
+      {System Engineer}{Kolkata, West Bengal}
+      \resumeItemListStart
+      \vspace{2pt}
+        \resumeItem{Built an event-driven feedback routing system with Kafka + AWS Lambda + EventBridge, integrating lightweight NLP models for dynamic classification. Automated manual routing, saving 60\% effort while maintaining 90\%+ accuracy.}
+        \vspace{4pt}
+        \resumeItem{Increased test coverage by 80\% by writing JUnit5 + Mockito + Testcontainers tests and built load-testing scripts in JMeter to simulate production traffic and identify performance issues early.}
+        \vspace{4pt}
+        \resumeItem{Created an internal tool using Azure OpenAI + SonarQube API that converted static analysis warnings into plain English with suggested fixes. Improved onboarding and reduced confusion for new developers dealing with code quality issues.}
+        
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {MAKAUT}{Aug. 2016 -- Aug 2020}
+      {Bachelor of Technology in Computer Science}{Asansol, West Bengal}
+  \resumeSubHeadingListEnd
+
+
+\end{document}

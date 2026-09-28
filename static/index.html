@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Builder — Jake Template</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">LOCAL LATEX RESUME BUILDER</div>
+      <h1>Resume Editor</h1>
+      <p class="sub">Edit the content in a simple form. Your supplied Jake-style layout stays the renderer.</p>
+    </div>
+    <div class="actions">
+      <button class="secondary" id="saveBtn">Save</button>
+      <button class="primary" id="generateBtn">Generate PDF</button>
+      <a class="secondary linkbtn" href="/download/resume.tex">Export .tex</a>
+      <a class="secondary linkbtn" id="downloadPdf" href="/download/resume.pdf">Export PDF</a>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="editor panel">
+      <div class="section-head"><div><h2>Resume content</h2><span id="status">Loading…</span></div></div>
+
+      <div class="form-section section-order-panel">
+        <div class="row-title">
+          <div>
+            <h3>Section order</h3>
+            <span class="help-text">Drag sections to change the order used in the PDF. You can also reorder entries inside Experience, Skills, Education, and bullets.</span>
+          </div>
+          <span class="order-hint">↕ Drag & drop</span>
+        </div>
+        <div id="sectionOrder" class="section-order-list"></div>
+      </div>
+
+      <div class="form-section">
+        <h3>Personal information</h3>
+        <div class="grid two">
+          <label>Name<input id="name"></label>
+          <label>Location<input id="location"></label>
+          <label>Phone<input id="phone"></label>
+          <label>Email<input id="email"></label>
+          <label>LinkedIn URL<input id="linkedin_url" placeholder="https://linkedin.com/in/..."> </label>
+          <label>LinkedIn display text<input id="linkedin_text"></label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>Professional summary</h3>
+        <label><textarea id="summary" rows="5"></textarea></label>
+      </div>
+
+      <div class="form-section">
+        <div class="row-title"><h3>Technical skills</h3><button class="small" onclick="addSkill()">+ Add row</button></div>
+        <div id="skills" class="reorder-container"></div>
+      </div>
+
+      <div class="form-section">
+        <div class="row-title"><h3>Experience</h3><button class="small" onclick="addExperience()">+ Add experience</button></div>
+        <div id="experience" class="reorder-container"></div>
+      </div>
+
+      <div class="form-section">
+        <div class="row-title"><h3>Education</h3><button class="small" onclick="addEducation()">+ Add education</button></div>
+        <div id="education" class="reorder-container"></div>
+      </div>
+    </section>
+
+    <aside class="preview panel">
+      <div class="preview-head">
+        <div><h2>PDF preview</h2><span id="previewInfo">Generate the PDF to refresh.</span></div>
+        <button class="small" onclick="window.open('/resume.pdf?ts='+Date.now(), '_blank')">Open full PDF</button>
+      </div>
+      <div class="pdf-frame-wrap">
+        <iframe id="pdfFrame" title="Resume PDF preview"></iframe>
+      </div>
+    </aside>
+  </main>
+
+  <template id="skillTemplate">
+    <div class="item-card skill-card" draggable="false">
+      <div class="item-row-head">
+        <span class="card-drag-handle" draggable="true" title="Drag to reorder">⋮⋮</span>
+        <span class="item-label">Skill group</span>
+        <span class="reorder-actions">
+          <button class="tiny move-up" type="button" title="Move up" onclick="moveCard('skills', [...document.querySelectorAll('#skills .item-card')].indexOf(this.closest('.item-card')), -1)">↑</button>
+          <button class="tiny move-down" type="button" title="Move down" onclick="moveCard('skills', [...document.querySelectorAll('#skills .item-card')].indexOf(this.closest('.item-card')), 1)">↓</button>
+          <button class="danger" type="button" onclick="this.closest('.item-card').remove(); refreshCardControls('skills')">Delete</button>
+        </span>
+      </div>
+      <div class="skill-grid">
+        <label>Category<input class="skill-category"></label>
+        <label>Skills<input class="skill-items"></label>
+      </div>
+    </div>
+  </template>
+
+  <template id="experienceTemplate">
+    <div class="item-card experience-card">
+      <div class="card-top">
+        <span class="card-drag-handle" draggable="true" title="Drag to reorder">⋮⋮</span>
+        <strong>Experience</strong>
+        <span class="reorder-actions">
+          <button class="tiny move-up" type="button" title="Move up" onclick="moveCard('experience', [...document.querySelectorAll('#experience .item-card')].indexOf(this.closest('.item-card')), -1)">↑</button>
+          <button class="tiny move-down" type="button" title="Move down" onclick="moveCard('experience', [...document.querySelectorAll('#experience .item-card')].indexOf(this.closest('.item-card')), 1)">↓</button>
+          <button class="danger" type="button" onclick="this.closest('.item-card').remove(); refreshCardControls('experience')">Delete</button>
+        </span>
+      </div>
+      <div class="grid two">
+        <label>Company<input class="exp-company"></label>
+        <label>Dates<input class="exp-dates" placeholder="Jan 2024 - Present"></label>
+        <label>Role<input class="exp-role"></label>
+        <label>Location<input class="exp-location"></label>
+      </div>
+      <div class="row-title compact"><h4>Bullets</h4><button class="small" type="button" onclick="addBullet(this)">+ Add bullet</button></div>
+      <div class="bullets"></div>
+    </div>
+  </template>
+
+  <template id="bulletTemplate">
+    <div class="bullet-row">
+      <span class="bullet-drag-handle" draggable="true" title="Drag to reorder">⋮⋮</span>
+      <span class="bullet-dot">•</span>
+      <textarea class="exp-bullet" rows="2"></textarea>
+      <span class="reorder-actions vertical">
+        <button class="tiny move-up" type="button" title="Move bullet up" onclick="moveBullet(this, -1)">↑</button>
+        <button class="tiny move-down" type="button" title="Move bullet down" onclick="moveBullet(this, 1)">↓</button>
+        <button class="danger" type="button" onclick="const c=this.closest('.bullet-row').parentElement; this.closest('.bullet-row').remove(); refreshBulletControls(c)">Delete</button>
+      </span>
+    </div>
+  </template>
+
+  <template id="educationTemplate">
+    <div class="item-card education-card">
+      <div class="card-top">
+        <span class="card-drag-handle" draggable="true" title="Drag to reorder">⋮⋮</span>
+        <strong>Education</strong>
+        <span class="reorder-actions">
+          <button class="tiny move-up" type="button" title="Move up" onclick="moveCard('education', [...document.querySelectorAll('#education .item-card')].indexOf(this.closest('.item-card')), -1)">↑</button>
+          <button class="tiny move-down" type="button" title="Move down" onclick="moveCard('education', [...document.querySelectorAll('#education .item-card')].indexOf(this.closest('.item-card')), 1)">↓</button>
+          <button class="danger" type="button" onclick="this.closest('.item-card').remove(); refreshCardControls('education')">Delete</button>
+        </span>
+      </div>
+      <div class="grid two">
+        <label>Institution<input class="edu-institution"></label>
+        <label>Dates<input class="edu-dates"></label>
+        <label>Degree<input class="edu-degree"></label>
+        <label>Location<input class="edu-location"></label>
+      </div>
+    </div>
+  </template>
+
+  <div id="toast" class="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

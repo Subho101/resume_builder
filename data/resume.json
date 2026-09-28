@@ -1,0 +1,86 @@
+{
+  "section_order": [
+    "summary",
+    "skills",
+    "experience",
+    "education"
+  ],
+  "personal": {
+    "name": "Subho Chowdhury",
+    "location": "Hyderabad, Telangana",
+    "phone": "+91 8250016128",
+    "email": "subhochowdhury50@gmail.com",
+    "linkedin_url": "https://linkedin.com/in/subho-chowdhury-24439b170",
+    "linkedin_text": "www.linkedin.com/in/subho-chowdhury-24439b170"
+  },
+  "summary": "Backend Engineer with 6+ years of experience building backend and event-driven systems with Java, Spring Boot, Kafka, PostgreSQL, Redis, Elasticsearch, and AWS. Currently working on financial reporting workflows supporting regulatory reporting, with a focus on backend services, data validation, asynchronous processing, and reliability. Previously built document processing and CDC-based search systems handling high-volume data. Comfortable working across application code, messaging, databases, testing, and observability.",
+  "skills": [
+    {
+      "category": "Languages",
+      "items": "Java (JDK 17), Python, SQL"
+    },
+    {
+      "category": "Backend",
+      "items": "Spring Boot, Spring Security, Spring Data JPA, REST APIs, Microservices"
+    },
+    {
+      "category": "Messaging",
+      "items": "Apache Kafka, Kafka Streams, Kafka Connect, AWS SQS, AWS SNS"
+    },
+    {
+      "category": "Data",
+      "items": "PostgreSQL, DynamoDB, Redis, Elasticsearch"
+    },
+    {
+      "category": "Cloud",
+      "items": "AWS (S3, Lambda, EventBridge, EC2, IAM, CloudWatch), Docker"
+    },
+    {
+      "category": "Architecture",
+      "items": "Event-Driven Architecture, Distributed Systems, Transactional Outbox, Idempotency, CDC, Audit Logging"
+    },
+    {
+      "category": "Testing",
+      "items": "JUnit 5, Mockito, Testcontainers, JMeter, Integration & Load Testing"
+    },
+    {
+      "category": "DevOps & Observability",
+      "items": "Maven, GitHub Actions, OpenTelemetry, Prometheus, Grafana, ELK"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Infosys",
+      "dates": "February 2026 - Present",
+      "role": "Consultant",
+      "location": "Hyderabad, Telangana",
+      "bullets": [
+        "Enhanced backend services for a financial reporting platform supporting regulatory reporting workflows. Developed Java/Spring Boot components for data validation, mapping, consolidation, and report generation across multiple services, with reporting cycles handling 50K+ records.",
+        "Worked on Kafka-based processing between reporting services, adding retry and dead-letter handling for failed messages and making consumers idempotent so duplicate events could be processed safely.",
+        "Developed configurable validation and mapping components covering 20+ business rules for data-quality checks, missing fields, and invalid values, reducing manual validation effort by 30% across test datasets.",
+        "Enhanced report approval workflows with state-based transitions, optimistic locking, and audit logging. This helped prevent conflicting updates when reports were reviewed concurrently and provided traceability across the reporting lifecycle.",
+        "Improved processing performance by 20% in load-test scenarios involving 100K+ records by tuning database queries, increasing Kafka consumer parallelism, and introducing Redis caching where repeated lookups were involved.",
+        "Added OpenTelemetry, Prometheus, and Grafana instrumentation for API latency, processing failures, distributed traces, and Kafka consumer lag. Also expanded automated tests with JUnit 5, Mockito, and Testcontainers, reaching 85% coverage across owned components."
+      ]
+    },
+    {
+      "company": "Tata Consultancy Services",
+      "dates": "August 2020 - January 2026",
+      "role": "IT Analyst",
+      "location": "Kolkata, West Bengal",
+      "bullets": [
+        "Built Spring Boot microservices for an internal document processing platform handling 5,000+ scanned PDFs/images per day. Kafka was used to decouple processing stages, while AWS Textract, S3, Lambda, and EventBridge handled OCR, storage, and asynchronous processing. Reduced manual processing time by 80%.",
+        "Replaced SQL-based text search with Elasticsearch and built a CDC pipeline using Debezium, Kafka Connect, and Kafka Streams to synchronize 2M+ PostgreSQL records with the search index. Updates reached Elasticsearch in under 5 minutes, while search latency improved by 70%.",
+        "Built an event-driven feedback routing workflow using Kafka, AWS Lambda, and EventBridge, integrating lightweight NLP models for automated classification and routing. Reduced manual routing effort by 60% while maintaining 90%+ classification accuracy."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "MAKAUT",
+      "dates": "Aug. 2016 -- Aug 2020",
+      "degree": "Bachelor of Technology in Computer Science",
+      "location": "Asansol, West Bengal"
+    }
+  ]
+}

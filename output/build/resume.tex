@@ -1,0 +1,183 @@
+%-------------------------
+% Resume in Latex
+% Based on the supplied modified Jake Gutierrez / sb2nov template.
+% The styling and layout below are retained from the user's original file.
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated PDF is machine readable / ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Subho Chowdhury} \\ \vspace{1pt}
+    Hyderabad, Telangana \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +91 8250016128 ~ \href{mailto:subhochowdhury50@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{subhochowdhury50@gmail.com}} ~
+    \href{https://linkedin.com/in/subho-chowdhury-24439b170}{\raisebox{-0.2\height}\faLinkedin\ \underline{www.linkedin.com/in/subho-chowdhury-24439b170}} ~
+\end{center}
+\section{Professional Summary}
+    Backend Engineer with 6+ years of experience building backend and event-driven systems with Java, Spring Boot, Kafka, PostgreSQL, Redis, Elasticsearch, and AWS. Currently working on financial reporting workflows supporting regulatory reporting, with a focus on backend services, data validation, asynchronous processing, and reliability. Previously built document processing and CDC-based search systems handling high-volume data. Comfortable working across application code, messaging, databases, testing, and observability.
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java (JDK 17), Python, SQL} \\
+     \textbf{Backend}{: Spring Boot, Spring Security, Spring Data JPA, REST APIs, Microservices} \\
+     \textbf{Messaging}{: Apache Kafka, Kafka Streams, Kafka Connect, AWS SQS, AWS SNS} \\
+     \textbf{Data}{: PostgreSQL, DynamoDB, Redis, Elasticsearch} \\
+     \textbf{Cloud}{: AWS (S3, Lambda, EventBridge, EC2, IAM, CloudWatch), Docker} \\
+     \textbf{Architecture}{: Event-Driven Architecture, Distributed Systems, Transactional Outbox, Idempotency, CDC, Audit Logging} \\
+     \textbf{Testing}{: JUnit 5, Mockito, Testcontainers, JMeter, Integration \& Load Testing} \\
+     \textbf{DevOps \& Observability}{: Maven, GitHub Actions, OpenTelemetry, Prometheus, Grafana, ELK} \\
+    }}
+ \end{itemize}
+ 
+ \vspace{-16pt}
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Infosys}{February 2026 - Present}
+      {Consultant}{Hyderabad, Telangana}
+      \resumeItemListStart
+      \vspace{4pt}
+        \resumeItem{Enhanced backend services for a financial reporting platform supporting regulatory reporting workflows. Developed Java/Spring Boot components for data validation, mapping, consolidation, and report generation across multiple services, with reporting cycles handling 50K+ records.}
+        \vspace{4pt}
+        \resumeItem{Worked on Kafka-based processing between reporting services, adding retry and dead-letter handling for failed messages and making consumers idempotent so duplicate events could be processed safely.}
+        \vspace{4pt}
+        \resumeItem{Developed configurable validation and mapping components covering 20+ business rules for data-quality checks, missing fields, and invalid values, reducing manual validation effort by 30\% across test datasets.}
+        \vspace{4pt}
+        \resumeItem{Enhanced report approval workflows with state-based transitions, optimistic locking, and audit logging. This helped prevent conflicting updates when reports were reviewed concurrently and provided traceability across the reporting lifecycle.}
+        \vspace{4pt}
+        \resumeItem{Improved processing performance by 20\% in load-test scenarios involving 100K+ records by tuning database queries, increasing Kafka consumer parallelism, and introducing Redis caching where repeated lookups were involved.}
+        \vspace{4pt}
+        \resumeItem{Added OpenTelemetry, Prometheus, and Grafana instrumentation for API latency, processing failures, distributed traces, and Kafka consumer lag. Also expanded automated tests with JUnit 5, Mockito, and Testcontainers, reaching 85\% coverage across owned components.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Tata Consultancy Services}{August 2020 - January 2026}
+      {IT Analyst}{Kolkata, West Bengal}
+      \resumeItemListStart
+      \vspace{4pt}
+        \resumeItem{Built Spring Boot microservices for an internal document processing platform handling 5,000+ scanned PDFs/images per day. Kafka was used to decouple processing stages, while AWS Textract, S3, Lambda, and EventBridge handled OCR, storage, and asynchronous processing. Reduced manual processing time by 80\%.}
+        \vspace{4pt}
+        \resumeItem{Replaced SQL-based text search with Elasticsearch and built a CDC pipeline using Debezium, Kafka Connect, and Kafka Streams to synchronize 2M+ PostgreSQL records with the search index. Updates reached Elasticsearch in under 5 minutes, while search latency improved by 70\%.}
+        \vspace{4pt}
+        \resumeItem{Built an event-driven feedback routing workflow using Kafka, AWS Lambda, and EventBridge, integrating lightweight NLP models for automated classification and routing. Reduced manual routing effort by 60\% while maintaining 90\%+ classification accuracy.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\vspace{-16pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {MAKAUT}{Aug. 2016 -- Aug 2020}
+      {Bachelor of Technology in Computer Science}{Asansol, West Bengal}
+  \resumeSubHeadingListEnd
+
+
+\end{document}
