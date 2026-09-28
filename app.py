@@ -265,18 +265,20 @@ def render_body(data: dict) -> str:
     p = data["personal"]
     pieces = []
     header_lines = [
-        r"%----------HEADING----------",
-        r"\begin{center}",
-        r"    {\Huge \scshape " + latex_escape(p.get("name", "")) + r"} \\ \vspace{1pt}",
-        "    " + latex_escape(p.get("location", "")) + r" \\ \vspace{1pt}",
-        r"    \small \raisebox{-0.1\height}\faPhone\ " + latex_escape(p.get("phone", ""))
-        + " ~ " + r"\href{mailto:" + latex_href(p.get("email", "")) + r"}{\raisebox{-0.2\height}\faEnvelope\  \underline{"
-        + latex_escape(p.get("email", "")) + r"}} ~",
-    ]
+    r"%----------HEADING----------",
+    r"\begin{center}",
+    r"    {\Huge \scshape " + latex_escape(p.get("name", "")) + r"} \\ \vspace{1pt}",
+    "    " + latex_escape(p.get("location", "")) + r" \\ \vspace{1pt}",
+    r"    \small "
+    + latex_escape(p.get("phone", ""))
+    + r" \textbar\ "
+    + r"\href{mailto:" + latex_href(p.get("email", "")) + r"}{\underline{"
+    + latex_escape(p.get("email", "")) + r"}} ~ \textbar\ ",
+]
     if p.get("linkedin_url") and p.get("linkedin_text"):
         header_lines.append(
-            r"    \href{" + latex_href(p.get("linkedin_url", "")) + r"}{\raisebox{-0.2\height}\faLinkedin\ \underline{"
-            + latex_escape(p.get("linkedin_text", "")) + r"}} ~"
+            r"    \href{" + latex_href(p.get("linkedin_url", "")) + r"}{\underline{"
+            + latex_escape(p.get("linkedin_text", "")) + r"}}"
         )
     header_lines.append(r"\end{center}")
     pieces.append("\n".join(header_lines) + "\n")
